@@ -210,7 +210,7 @@
 				TargetAttributes = {
 					21F222251B73B5AC00B9A11A = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = UP9C8XM22A;
+						DevelopmentTeam = FX2G23KQ3F;
 						ProvisioningStyle = Automatic;
 					};
 					21F222391B73B60100B9A11A = {
@@ -410,7 +410,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UP9C8XM22A;
+				DEVELOPMENT_TEAM = FX2G23KQ3F;
 				INFOPLIST_FILE = "$(SRCROOT)/Countdown/Support/Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -430,7 +430,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UP9C8XM22A;
+				DEVELOPMENT_TEAM = FX2G23KQ3F;
 				INFOPLIST_FILE = "$(SRCROOT)/Countdown/Support/Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";

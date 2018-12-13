@@ -41,11 +41,25 @@ final class CountdownView: ScreenSaverView {
 		view.detailTextLabel.stringValue = "SECONDS"
 		return view
 	}()
+    
+    private let messageView: PlaceView = {
+        let view = PlaceView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        //view.detailTextLabel.stringValue = "HOURS"
+        return view
+    }()
+    
+    private let messageAndTimerView: NSStackView = {
+        let view = NSStackView()
+        view.orientation = .vertical
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = true
+        return view
+    }()
 
 	private let placesView: NSStackView = {
 		let view = NSStackView()
 		view.translatesAutoresizingMaskIntoConstraints = false
-		view.isHidden = true
 		return view
 	}()
 
@@ -58,7 +72,12 @@ final class CountdownView: ScreenSaverView {
 			updateFonts()
 		}
 	}
-
+    
+    private var message: String? {
+        didSet {
+            updateFonts()
+        }
+    }
 
 	// MARK: - Initializers
 
@@ -104,7 +123,7 @@ final class CountdownView: ScreenSaverView {
 
 	override func animateOneFrame() {
 		placeholderLabel.isHidden = date != nil
-		placesView.isHidden = !placeholderLabel.isHidden
+		messageAndTimerView.isHidden = !placeholderLabel.isHidden
 
 		guard let date = date else { return }
 
@@ -114,6 +133,7 @@ final class CountdownView: ScreenSaverView {
         hoursView.textLabel.stringValue = components.hour.flatMap { String(format: "%02d", abs($0)) } ?? ""
         minutesView.textLabel.stringValue = components.minute.flatMap { String(format: "%02d", abs($0)) } ?? ""
         secondsView.textLabel.stringValue = components.second.flatMap { String(format: "%02d", abs($0)) } ?? ""
+        messageView.textLabel.stringValue = message ?? ""
 	}
 
     override var hasConfigureSheet: Bool {
@@ -134,6 +154,7 @@ final class CountdownView: ScreenSaverView {
 
 		// Recall preferences
 		date = Preferences().date
+        message = Preferences().message
 
 		// Setup the views
 		addSubview(placeholderLabel)
@@ -142,7 +163,11 @@ final class CountdownView: ScreenSaverView {
 		placesView.addArrangedSubview(hoursView)
 		placesView.addArrangedSubview(minutesView)
 		placesView.addArrangedSubview(secondsView)
-		addSubview(placesView)
+        
+        messageAndTimerView.addArrangedSubview(messageView)
+        messageAndTimerView.addArrangedSubview(placesView)
+        
+		addSubview(messageAndTimerView)
 
 		updateFonts()
 
@@ -150,24 +175,31 @@ final class CountdownView: ScreenSaverView {
             placeholderLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
 			placeholderLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
 
-			placesView.centerXAnchor.constraint(equalTo: centerXAnchor),
-			placesView.centerYAnchor.constraint(equalTo: centerYAnchor)
+			messageAndTimerView.centerXAnchor.constraint(equalTo: centerXAnchor),
+			messageAndTimerView.centerYAnchor.constraint(equalTo: centerYAnchor)
 		])
 
 		// Listen for configuration changes
 		NotificationCenter.default.addObserver(self, selector: #selector(dateDidChange), name: .dateDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(messageDidChange), name: .messageDidChange, object: nil)
 	}
 
 	/// Date changed
 	@objc private func dateDidChange(_ notification: NSNotification?) {
 		date = Preferences().date
 	}
+    
+    @objc private func messageDidChange(_ notification: NSNotification?) {
+        message = Preferences().message
+    }
+    
 
 	/// Update the font for the current size
 	private func updateFonts() {
 		placesView.spacing = floor(bounds.width * 0.05)
 
         placeholderLabel.font = font(withSize: floor(bounds.width / 30), isMonospace: false)
+        messageView.textLabel.font = font(withSize: floor(bounds.width / 30), isMonospace: true)
 
 		let places = [daysView, hoursView, minutesView, secondsView]
         let textFont = font(withSize: round(bounds.width / 8), weight: .ultraLight)

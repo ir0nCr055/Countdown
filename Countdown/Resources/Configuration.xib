@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ConfigurationWindowController" customModule="Countdown" customModuleProvider="target">
@@ -15,14 +16,14 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="266" height="96"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="contentRect" x="196" y="240" width="423" height="127"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="266" height="96"/>
+                <rect key="frame" x="0.0" y="0.0" width="423" height="127"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cf0-hz-k84">
-                        <rect key="frame" x="18" y="56" width="37" height="17"/>
+                        <rect key="frame" x="32" y="56" width="37" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Date:" id="niJ-ql-s5d">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -30,13 +31,12 @@
                         </textFieldCell>
                     </textField>
                     <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="24i-HD-fhj">
-                        <rect key="frame" x="66" y="53" width="183" height="27"/>
+                        <rect key="frame" x="80" y="53" width="326" height="27"/>
                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="6zn-zD-imf">
                             <font key="font" metaFont="system"/>
-                            <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
-                                <!--1982-02-12 08:00:00 -0800-->
-                                <timeZone key="timeZone" name="US/Pacific"/>
-                            </calendarDate>
+                            <date key="date" timeIntervalSinceReferenceDate="-595929600">
+                                <!--1982-02-12 16:00:00 +0000-->
+                            </date>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <datePickerElements key="datePickerElements" year="YES" month="YES" day="YES" hour="YES" minute="YES" second="YES"/>
@@ -46,7 +46,7 @@
                         </connections>
                     </datePicker>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nsQ-3M-79j">
-                        <rect key="frame" x="193" y="13" width="59" height="32"/>
+                        <rect key="frame" x="350" y="13" width="59" height="32"/>
                         <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JAB-GH-sNP">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -56,23 +56,48 @@ DQ
                         </buttonCell>
                         <connections>
                             <action selector="close:" target="-2" id="6l5-z1-3YJ"/>
-                            <outlet property="nextKeyView" destination="24i-HD-fhj" id="Vdw-qw-Iwe"/>
+                            <outlet property="nextKeyView" destination="XnE-uA-t7L" id="U0C-g5-tmz"/>
                         </connections>
                     </button>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XnE-uA-t7L" userLabel="Message Text Field">
+                        <rect key="frame" x="80" y="84" width="323" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="7ml-hs-zhX">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="zet-Ww-APq" name="value" keyPath="self.message" id="gAV-5V-d6S"/>
+                            <outlet property="nextKeyView" destination="24i-HD-fhj" id="viN-7t-9GC"/>
+                        </connections>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uZZ-s8-HM1">
+                        <rect key="frame" x="6" y="87" width="63" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Message:" id="nRn-U2-epE">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="uZZ-s8-HM1" firstAttribute="trailing" secondItem="cf0-hz-k84" secondAttribute="trailing" id="7LN-vo-RLB"/>
                     <constraint firstItem="24i-HD-fhj" firstAttribute="baseline" secondItem="cf0-hz-k84" secondAttribute="baseline" id="7Vc-tp-tY2"/>
                     <constraint firstAttribute="bottom" secondItem="nsQ-3M-79j" secondAttribute="bottom" constant="20" id="CoE-hU-udw"/>
-                    <constraint firstItem="cf0-hz-k84" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="EFk-KI-W4h"/>
+                    <constraint firstItem="cf0-hz-k84" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="34" id="EFk-KI-W4h"/>
                     <constraint firstItem="nsQ-3M-79j" firstAttribute="top" secondItem="24i-HD-fhj" secondAttribute="bottom" constant="12" id="HjJ-Hi-Wdj"/>
                     <constraint firstItem="24i-HD-fhj" firstAttribute="leading" secondItem="cf0-hz-k84" secondAttribute="trailing" constant="13" id="Rcp-K1-NEH"/>
-                    <constraint firstItem="cf0-hz-k84" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="23" id="S7T-4b-sxr"/>
                     <constraint firstAttribute="trailing" secondItem="nsQ-3M-79j" secondAttribute="trailing" constant="20" id="YFz-gP-Of9"/>
                     <constraint firstAttribute="trailing" secondItem="24i-HD-fhj" secondAttribute="trailing" constant="20" id="fho-pn-Oac"/>
+                    <constraint firstItem="XnE-uA-t7L" firstAttribute="leading" secondItem="24i-HD-fhj" secondAttribute="leading" id="kRB-ca-TSA"/>
+                    <constraint firstItem="24i-HD-fhj" firstAttribute="top" secondItem="XnE-uA-t7L" secondAttribute="bottom" constant="8" id="uf1-1f-vcE"/>
+                    <constraint firstAttribute="trailing" secondItem="XnE-uA-t7L" secondAttribute="trailing" constant="20" id="uvm-AN-Nn1"/>
+                    <constraint firstItem="cf0-hz-k84" firstAttribute="top" secondItem="uZZ-s8-HM1" secondAttribute="bottom" constant="14" id="wyt-aa-MVd"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="407" y="211"/>
+            <point key="canvasLocation" x="410.5" y="226.5"/>
         </window>
         <customObject id="zet-Ww-APq" customClass="Preferences" customModule="Countdown" customModuleProvider="target"/>
+        <userDefaultsController representsSharedInstance="YES" id="i9v-B0-f1e"/>
     </objects>
 </document>

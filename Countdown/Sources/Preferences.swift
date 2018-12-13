@@ -6,6 +6,7 @@ final class Preferences: NSObject {
 	// MARK: - Properties
 
 	private let dateKey = "Date2"
+    private let messageKey = "Message"
 
 	@objc var date: Date? {
 		get {
@@ -24,6 +25,23 @@ final class Preferences: NSObject {
             NotificationCenter.default.post(name: .dateDidChange, object: newValue)
 		}
 	}
+    
+    @objc var message: String? {
+        get {
+            return defaults?.object(forKey: messageKey) as? String
+        }
+        
+        set {
+            if let message = newValue {
+                defaults?.set(message, forKey: messageKey)
+            } else {
+                defaults?.removeObject(forKey: messageKey)
+            }
+            defaults?.synchronize()
+            
+            NotificationCenter.default.post(name: .messageDidChange, object: newValue)
+        }
+    }
 
 	private let defaults: ScreenSaverDefaults? = {
         let bundleIdentifier = Bundle(for: Preferences.self).bundleIdentifier
@@ -33,4 +51,5 @@ final class Preferences: NSObject {
 
 extension Notification.Name {
     static let dateDidChange = Notification.Name(rawValue: "Preferences.dateDidChangeNotification")
+    static let messageDidChange = Notification.Name(rawValue: "Preferences.messageDidChangeNotification")
 }
