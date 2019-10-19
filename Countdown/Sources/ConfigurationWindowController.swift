@@ -5,7 +5,7 @@ final class ConfigurationWindowController: NSWindowController {
 	// MARK: - NSWindowController
 
 	override var windowNibName: NSNib.Name {
-		return NSNib.Name(rawValue: "Configuration")
+		return NSNib.Name(stringLiteral: "Configuration")
 	}
 
 

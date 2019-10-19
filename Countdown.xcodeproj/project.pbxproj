@@ -210,7 +210,7 @@
 				TargetAttributes = {
 					21F222251B73B5AC00B9A11A = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = FX2G23KQ3F;
+						DevelopmentTeam = 3NZD47K4V8;
 						ProvisioningStyle = Automatic;
 					};
 					21F222391B73B60100B9A11A = {
@@ -223,6 +223,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -350,7 +351,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -398,7 +400,8 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
@@ -410,10 +413,11 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = FX2G23KQ3F;
+				DEVELOPMENT_TEAM = 3NZD47K4V8;
 				INFOPLIST_FILE = "$(SRCROOT)/Countdown/Support/Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.countdown;
 				PRODUCT_NAME = Countdown;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -430,10 +434,11 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = FX2G23KQ3F;
+				DEVELOPMENT_TEAM = 3NZD47K4V8;
 				INFOPLIST_FILE = "$(SRCROOT)/Countdown/Support/Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.countdown;
 				PRODUCT_NAME = Countdown;
 				PROVISIONING_PROFILE_SPECIFIER = "";
