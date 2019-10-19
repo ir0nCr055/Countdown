@@ -23,6 +23,8 @@
 		218D6EFC20FC3D440029D4A9 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218D6EE320FC3CEB0029D4A9 /* PlaceView.swift */; };
 		218D6EFD20FC3D440029D4A9 /* ConfigurationWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218D6EE420FC3CEB0029D4A9 /* ConfigurationWindowController.swift */; };
 		218D6EFE20FC3D4E0029D4A9 /* Configuration.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218D6EDC20FC3CEB0029D4A9 /* Configuration.xib */; };
+		24DAB63C235B9BD500F131C9 /* mediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DAB63B235B9BD500F131C9 /* mediaView.swift */; };
+		24DAB63D235BAA1500F131C9 /* mediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DAB63B235B9BD500F131C9 /* mediaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,7 @@
 		218D6EF420FC3CF00029D4A9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21F222261B73B5AC00B9A11A /* Countdown.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Countdown.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F2223A1B73B60100B9A11A /* Preview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Preview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24DAB63B235B9BD500F131C9 /* mediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mediaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,7 @@
 				218D6EE220FC3CEB0029D4A9 /* CountdownView.swift */,
 				218D6EE320FC3CEB0029D4A9 /* PlaceView.swift */,
 				218D6EE420FC3CEB0029D4A9 /* ConfigurationWindowController.swift */,
+				24DAB63B235B9BD500F131C9 /* mediaView.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -268,6 +272,7 @@
 				218D6EE920FC3CEB0029D4A9 /* CountdownView.swift in Sources */,
 				218D6EE820FC3CEB0029D4A9 /* Preferences.swift in Sources */,
 				218D6EEB20FC3CEB0029D4A9 /* ConfigurationWindowController.swift in Sources */,
+				24DAB63C235B9BD500F131C9 /* mediaView.swift in Sources */,
 				218D6EEA20FC3CEB0029D4A9 /* PlaceView.swift in Sources */,
 				218D6EE720FC3CEB0029D4A9 /* Label.swift in Sources */,
 			);
@@ -278,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				218D6EFD20FC3D440029D4A9 /* ConfigurationWindowController.swift in Sources */,
+				24DAB63D235BAA1500F131C9 /* mediaView.swift in Sources */,
 				218D6EF920FC3D440029D4A9 /* Label.swift in Sources */,
 				218D6EF820FC3CF00029D4A9 /* AppDelegate.swift in Sources */,
 				218D6EFC20FC3D440029D4A9 /* PlaceView.swift in Sources */,
@@ -346,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -395,7 +401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -417,7 +423,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Countdown/Support/Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.countdown;
 				PRODUCT_NAME = Countdown;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -438,7 +444,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Countdown/Support/Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.countdown;
 				PRODUCT_NAME = Countdown;
 				PROVISIONING_PROFILE_SPECIFIER = "";

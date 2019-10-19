@@ -49,6 +49,12 @@ final class CountdownView: ScreenSaverView {
         return view
     }()
     
+    private let backgroundMediaView: mediaView = {
+        let view = mediaView(mediaPath: Preferences().mediaPath)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private let messageAndTimerView: NSStackView = {
         let view = NSStackView()
         view.orientation = .vertical
@@ -157,6 +163,7 @@ final class CountdownView: ScreenSaverView {
         message = Preferences().message
 
 		// Setup the views
+        addSubview(backgroundMediaView)
 		addSubview(placeholderLabel)
 
 		placesView.addArrangedSubview(daysView)
@@ -174,7 +181,10 @@ final class CountdownView: ScreenSaverView {
 		addConstraints([
             placeholderLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
 			placeholderLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-
+            backgroundMediaView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            backgroundMediaView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            backgroundMediaView.widthAnchor.constraint(equalTo: widthAnchor),
+            backgroundMediaView.heightAnchor.constraint(equalTo: heightAnchor),
 			messageAndTimerView.centerXAnchor.constraint(equalTo: centerXAnchor),
 			messageAndTimerView.centerYAnchor.constraint(equalTo: centerYAnchor)
 		])
@@ -182,6 +192,7 @@ final class CountdownView: ScreenSaverView {
 		// Listen for configuration changes
 		NotificationCenter.default.addObserver(self, selector: #selector(dateDidChange), name: .dateDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(messageDidChange), name: .messageDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(mediaDidChange), name: .mediaPathDidChange, object: nil)
 	}
 
 	/// Date changed
@@ -191,6 +202,10 @@ final class CountdownView: ScreenSaverView {
     
     @objc private func messageDidChange(_ notification: NSNotification?) {
         message = Preferences().message
+    }
+    
+    @objc private func mediaDidChange(_ notification: NSNotification?) {
+        backgroundMediaView.updateMediaPath(Preferences().mediaPath)
     }
     
 

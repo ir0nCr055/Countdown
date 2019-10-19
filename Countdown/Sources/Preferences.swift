@@ -7,6 +7,7 @@ final class Preferences: NSObject {
 
 	private let dateKey = "Date2"
     private let messageKey = "Message"
+    private let mediaPathKey = "Media"
 
 	@objc var date: Date? {
 		get {
@@ -42,6 +43,23 @@ final class Preferences: NSObject {
             NotificationCenter.default.post(name: .messageDidChange, object: newValue)
         }
     }
+    
+    @objc var mediaPath: String? {
+        get {
+            return defaults?.object(forKey: mediaPathKey) as? String
+        }
+        
+        set {
+            if let mediaPath = newValue {
+                defaults?.set(mediaPath, forKey: mediaPathKey)
+            } else {
+                defaults?.removeObject(forKey: mediaPathKey)
+            }
+            defaults?.synchronize()
+            
+            NotificationCenter.default.post(name: .mediaPathDidChange, object: newValue)
+        }
+    }
 
 	private let defaults: ScreenSaverDefaults? = {
         let bundleIdentifier = Bundle(for: Preferences.self).bundleIdentifier
@@ -52,4 +70,5 @@ final class Preferences: NSObject {
 extension Notification.Name {
     static let dateDidChange = Notification.Name(rawValue: "Preferences.dateDidChangeNotification")
     static let messageDidChange = Notification.Name(rawValue: "Preferences.messageDidChangeNotification")
+    static let mediaPathDidChange = Notification.Name(rawValue: "Preferences.mediaPathDidChangeNotification")
 }

@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ConfigurationWindowController" customModule="Countdown" customModuleProvider="target">
             <connections>
+                <outlet property="mediaPathControl" destination="Ov3-1R-MYp" id="dHW-ta-xL4"/>
+                <outlet property="prefsManager" destination="zet-Ww-APq" id="Chu-WM-1st"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="yFe-qJ-2Tx"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="423" height="127"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="contentRect" x="196" y="240" width="423" height="170"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="423" height="127"/>
+                <rect key="frame" x="0.0" y="0.0" width="423" height="170"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cf0-hz-k84">
-                        <rect key="frame" x="32" y="56" width="37" height="17"/>
+                        <rect key="frame" x="32" y="100" width="37" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Date:" id="niJ-ql-s5d">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -31,7 +33,10 @@
                         </textFieldCell>
                     </textField>
                     <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="24i-HD-fhj">
-                        <rect key="frame" x="80" y="53" width="326" height="27"/>
+                        <rect key="frame" x="80" y="97" width="326" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="2Qg-oG-hEw"/>
+                        </constraints>
                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="6zn-zD-imf">
                             <font key="font" metaFont="system"/>
                             <date key="date" timeIntervalSinceReferenceDate="-595929600">
@@ -43,6 +48,7 @@
                         </datePickerCell>
                         <connections>
                             <binding destination="zet-Ww-APq" name="value" keyPath="self.date" id="RPz-gh-DPM"/>
+                            <outlet property="nextKeyView" destination="Ov3-1R-MYp" id="c7D-Kl-t8p"/>
                         </connections>
                     </datePicker>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nsQ-3M-79j">
@@ -60,10 +66,10 @@ DQ
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XnE-uA-t7L" userLabel="Message Text Field">
-                        <rect key="frame" x="80" y="84" width="323" height="22"/>
+                        <rect key="frame" x="80" y="128" width="323" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="7ml-hs-zhX">
                             <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
@@ -72,30 +78,62 @@ DQ
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uZZ-s8-HM1">
-                        <rect key="frame" x="6" y="87" width="63" height="17"/>
+                        <rect key="frame" x="6" y="131" width="63" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Message:" id="nRn-U2-epE">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xIJ-Ac-Uu2">
+                        <rect key="frame" x="18" y="69" width="51" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="47" id="Gew-xp-oou"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Media:" id="n8q-Lw-zoD">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ov3-1R-MYp">
+                        <rect key="frame" x="79" y="64" width="324" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="MdM-Ks-XBg"/>
+                        </constraints>
+                        <pathCell key="cell" selectable="YES" editable="YES" alignment="left" placeholderString="Drag Media Here to Show in Background" id="1vT-QH-71u">
+                            <font key="font" metaFont="system"/>
+                        </pathCell>
+                        <connections>
+                            <action selector="mediaPathUpdated:" target="-2" id="5k9-nV-GkL"/>
+                            <outlet property="nextKeyView" destination="nsQ-3M-79j" id="kZM-sE-mjR"/>
+                        </connections>
+                    </pathControl>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="xIJ-Ac-Uu2" firstAttribute="trailing" secondItem="cf0-hz-k84" secondAttribute="trailing" id="5A3-dW-wEq"/>
+                    <constraint firstItem="xIJ-Ac-Uu2" firstAttribute="top" secondItem="cf0-hz-k84" secondAttribute="bottom" constant="14" id="5YL-W9-Khb"/>
                     <constraint firstItem="uZZ-s8-HM1" firstAttribute="trailing" secondItem="cf0-hz-k84" secondAttribute="trailing" id="7LN-vo-RLB"/>
                     <constraint firstItem="24i-HD-fhj" firstAttribute="baseline" secondItem="cf0-hz-k84" secondAttribute="baseline" id="7Vc-tp-tY2"/>
-                    <constraint firstAttribute="bottom" secondItem="nsQ-3M-79j" secondAttribute="bottom" constant="20" id="CoE-hU-udw"/>
+                    <constraint firstAttribute="trailing" secondItem="Ov3-1R-MYp" secondAttribute="trailing" constant="20" id="Beg-0e-qcR"/>
                     <constraint firstItem="cf0-hz-k84" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="34" id="EFk-KI-W4h"/>
-                    <constraint firstItem="nsQ-3M-79j" firstAttribute="top" secondItem="24i-HD-fhj" secondAttribute="bottom" constant="12" id="HjJ-Hi-Wdj"/>
+                    <constraint firstAttribute="bottom" secondItem="nsQ-3M-79j" secondAttribute="bottom" constant="20" id="QGi-9Y-Tql"/>
                     <constraint firstItem="24i-HD-fhj" firstAttribute="leading" secondItem="cf0-hz-k84" secondAttribute="trailing" constant="13" id="Rcp-K1-NEH"/>
+                    <constraint firstItem="Ov3-1R-MYp" firstAttribute="leading" secondItem="xIJ-Ac-Uu2" secondAttribute="trailing" constant="12" id="SkR-Ax-jVo"/>
+                    <constraint firstItem="Ov3-1R-MYp" firstAttribute="top" secondItem="24i-HD-fhj" secondAttribute="bottom" constant="11" id="ViI-fZ-N48"/>
                     <constraint firstAttribute="trailing" secondItem="nsQ-3M-79j" secondAttribute="trailing" constant="20" id="YFz-gP-Of9"/>
                     <constraint firstAttribute="trailing" secondItem="24i-HD-fhj" secondAttribute="trailing" constant="20" id="fho-pn-Oac"/>
                     <constraint firstItem="XnE-uA-t7L" firstAttribute="leading" secondItem="24i-HD-fhj" secondAttribute="leading" id="kRB-ca-TSA"/>
+                    <constraint firstItem="XnE-uA-t7L" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="sce-PH-M7n"/>
                     <constraint firstItem="24i-HD-fhj" firstAttribute="top" secondItem="XnE-uA-t7L" secondAttribute="bottom" constant="8" id="uf1-1f-vcE"/>
                     <constraint firstAttribute="trailing" secondItem="XnE-uA-t7L" secondAttribute="trailing" constant="20" id="uvm-AN-Nn1"/>
                     <constraint firstItem="cf0-hz-k84" firstAttribute="top" secondItem="uZZ-s8-HM1" secondAttribute="bottom" constant="14" id="wyt-aa-MVd"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="410.5" y="226.5"/>
+            <connections>
+                <outlet property="delegate" destination="-2" id="vaW-WV-Dq4"/>
+            </connections>
+            <point key="canvasLocation" x="410.5" y="248"/>
         </window>
         <customObject id="zet-Ww-APq" customClass="Preferences" customModule="Countdown" customModuleProvider="target"/>
         <userDefaultsController representsSharedInstance="YES" id="i9v-B0-f1e"/>
